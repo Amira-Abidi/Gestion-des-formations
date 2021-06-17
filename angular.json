@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "4ef99d49-6113-474b-9ff5-bb3dc0cb55c4"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Qatar2020": {
+    "Forminet": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Qatar2020",
+            "outputPath": "dist/Forminet",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +31,28 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/admin-lte/plugins/fontawesome-free/css/all.css",
+              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
+              "node_modules/admin-lte/dist/css/adminlte.css"
+            
             ],
-            "scripts": []
+            "scripts": [
+
+              "node_modules/admin-lte/plugins/jquery/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js",
+              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/admin-lte/dist/js/demo.js",
+              "node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js",
+              "node_modules/admin-lte/plugins/raphael/raphael.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
+              "node_modules/admin-lte/plugins/chart.js/Chart.js",
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,18 +87,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Qatar2020:build"
+            "browserTarget": "Forminet:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Qatar2020:build:production"
+              "browserTarget": "Forminet:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Qatar2020:build"
+            "browserTarget": "Forminet:build"
           }
         },
         "test": {
@@ -113,16 +135,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Qatar2020:serve"
+            "devServerTarget": "Forminet:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Qatar2020:serve:production"
+              "devServerTarget": "Forminet:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Qatar2020"
+  "defaultProject": "Forminet"
 }

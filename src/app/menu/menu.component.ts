@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Pays } from '../model/pays';
+import { PaysServiceService } from '../service/pays-service.service';
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
+})
+export class MenuComponent implements OnInit {
+
+
+  
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
