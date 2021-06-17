@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -28,6 +31,8 @@ public class Profil {
 	private String libelle;
 	@OneToMany(mappedBy="profils",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore
+	@NotFound(action = NotFoundAction.IGNORE)
+
 	Set<Participant> participant =  new HashSet<>();
 	public Profil() {
 		super();

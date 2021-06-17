@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Domaine  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Column(name="participant_id")
+	@Column(name="id")
 	private Long id;
 	@Column(name="libelle")
 	private String libelle;

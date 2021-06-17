@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,24 +18,26 @@ import com.example.demo.service.PaysService;
     
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4400")
+
 @RequestMapping("/api/v1")
 public class PaysController {
 	 @Autowired
 	    private PaysService service;
-	  @PostMapping("/addPays")
+	  @PostMapping("/Pays")
 	    public Pays addProduct(@RequestBody Pays Pays) {
 	        return service.savePays(Pays);
 	    }
-	  @GetMapping("/Payss")
+	  @GetMapping("/Pays")
 	    public List<Pays> findAllProducts() {
 	        return service.getPayss();
 	    }
-	  @GetMapping("/PaysById/{id}")
+	  @GetMapping("/Pays/{id}")
 	    public Pays findProductById(@PathVariable int id) {
 	        return service.getOrganismById(id);
 	    }
-	  @DeleteMapping("/deletePays/{id}")
-	    public String deleteProduct(@PathVariable int id) {
+	  @DeleteMapping("/Pays/{id}")
+	    public String deleteProduct(@PathVariable long id) {
 	        return service.deletePays(id);
 	    }
 	  @PutMapping("/updatePays")

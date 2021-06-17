@@ -17,15 +17,15 @@ import com.example.demo.service.ParticipantService;
     
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/")
 public class ParticipantController {
 	 @Autowired
 	    private ParticipantService service;
-	  @PostMapping("/addParticipant")
+	  @PostMapping("/participants")
 	    public Participant addProduct(@RequestBody Participant Participant) {
 	        return service.saveParticipant(Participant);
 	    }
-	  @GetMapping("/Participants")
+	  @GetMapping("/participants")
 	    public List<Participant> findAllProducts() {
 	        return service.getParticipants();
 	    }

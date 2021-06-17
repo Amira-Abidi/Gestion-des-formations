@@ -13,6 +13,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Pays")
@@ -20,24 +23,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Pays {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  
-	@Column(name="idPays")
-	public int id;
+	@Column(name="id_pays")
+	public long id;
 	@Column(name="nom")
 	public String nom;
 	@OneToMany(mappedBy="pays",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore
+	@NotFound(action = NotFoundAction.IGNORE)
+
 	Set<Participant> participant =  new HashSet<>();
-	public Pays(int id, String nom) {
+	
+	public Pays() {
+		
+	}
+	public Pays(long id, String nom) {
 		super();
 		this.id = id;
 		this.nom = nom;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
